@@ -6,7 +6,7 @@
 /*   By: jebravo- <jebravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:17:11 by jebravo-          #+#    #+#             */
-/*   Updated: 2024/04/16 19:37:57 by jebravo-         ###   ########.fr       */
+/*   Updated: 2024/04/18 20:25:08 by jebravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,16 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*pdst;
-	const char	*psrc;
 	size_t		i;
 	size_t		j;
 
-	pdst = (char *)dst;
-	psrc = (const char *)src;
 	i = 0;
 	j = len;
-	if (pdst < psrc)
+	if ((char *)dst < (const char *)src)
 	{
 		while (i < len)
 		{
-			pdst[i] = psrc[i];
+			((char *)dst)[i] = ((const char *)src)[i];
 			i++;
 		}
 	}
@@ -35,7 +31,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (j < 0)
 		{
-			pdst[j - 1] = psrc[j - 1];
+			((char *)dst)[j - 1] = ((const char *)src)[j - 1];
+			j--;
 		}
 	}
 	return (dst);

@@ -6,7 +6,7 @@
 /*   By: jebravo- <jebravo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 15:36:15 by jebravo-          #+#    #+#             */
-/*   Updated: 2024/04/16 19:38:54 by jebravo-         ###   ########.fr       */
+/*   Updated: 2024/04/18 20:17:33 by jebravo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	pdst = (char *)dst;
 	psrc = (const char *)src;
 	i = 0;
-	while (i < n)
+	if ((pdst != NULL) || (psrc != NULL))
 	{
-		pdst[i] = psrc[i];
-		i++;
+		while (i < n)
+		{
+			pdst[i] = psrc[i];
+			i++;
+		}
 	}
 	return (dst);
 }
